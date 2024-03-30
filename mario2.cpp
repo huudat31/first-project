@@ -30,24 +30,24 @@ int main(){
 
 
     // // sử dụng quy hoạch động áp dụng các trường hợp còn lại
-    // for(int i = 0;i< N;i++){
-    //     for(int j = 0;j<N;j++){
-    //         // khởi tạo giá trị cơ sở
-    //         if(a[0][1] == '.' || a[1][0] == '.') dp[0][0] = 1;
+    for(int i = 0;i< N;i++){
+        for(int j = 0;j<N;j++){
+            // khởi tạo giá trị cơ sở
+            if(a[0][1] == '.' || a[1][0] == '.') dp[0][0] = 1;
 
-    //         // với mỗi giá trị dp[i][j] += dp[i-1][j]  nếu a[i-1][j] == '.'
-    //        if(a[i-1][j] == '.' && i - 1 >= 0) {
-    //          dp[i][j] += dp[i-1][j] ;
-    //        }
+            // với mỗi giá trị dp[i][j] += dp[i-1][j]  nếu a[i-1][j] == '.'
+           if(a[i-1][j] == '.' && i - 1 >= 0) {
+             dp[i][j] += dp[i-1][j] ;
+           }
 
-    //        // Với mỗi giá trị dp[i][j] += dp[i][j-1] nếu a[i][j-1] == '.'
-    //        if(a[i][j-1] == '.' && j - 1 >= 0) {
-    //          dp[i][j] += dp[i][j-1];
-    //        }
-    //        dp[i][j] %= mod;
-    //     }
-    //     cout<< dp[i][j];
-    // }
-    // cout<< dp[N-1][N-1];
+           // Với mỗi giá trị dp[i][j] += dp[i][j-1] nếu a[i][j-1] == '.'
+           if(a[i][j-1] == '.' && j - 1 >= 0) {
+             dp[i][j] += dp[i][j-1];
+           }
+           dp[i][j] %= mod;
+        }
+        cout<< dp[i][j];
+    }
+    cout<< dp[N-1][N-1];
     return 0;
 }
